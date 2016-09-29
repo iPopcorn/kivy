@@ -1,0 +1,271 @@
+<PrivacySubmitButton>:
+    size_hint_y: 0.1
+    text: 'Submit'
+    on_release: self.submitPrivacySettings()
+
+<HandlesLayout>:
+    cols: 2
+    size_hint: (0.8,0.8)
+    pos: (root.width * 0.1, root.height * 0.1)
+    spacing: self.height * 0.025
+    Label:
+        text: 'Facebook'
+    TextInput:
+        id: fbInput
+        multiline: False
+    Label:
+        text: 'Twitter'
+    TextInput:
+        id: twitterInput
+        multiline: False
+    Label:
+        text: 'Reddit'
+    TextInput:
+        id: redditInput
+        multiline: False
+    Label:
+        text: 'Google+'
+    TextInput:
+        id: googleInput
+        multiline: False
+    Label:
+        text: 'Skype'
+    TextInput:
+        id: skypeInput
+        multiline: False
+    Label:
+        text: 'Xbox Live'
+    TextInput:
+        id: xblInput
+        multiline: False
+    Label:
+        text: 'PlayStation Network'
+    TextInput:
+        id: psnInput
+        multiline: False
+    Label:
+        text: 'Nintendo'
+    TextInput:
+        id: nintendoInput
+        multiline: False
+    Label:
+        text: 'Steam'
+    TextInput:
+        id: steamInput
+        multiline: False
+
+<SocialPrivacyScreen>:
+    name: 'socialprivacyscreen'
+    BoxLayout:
+        orientation: 'vertical'
+        size_hint: (0.8,0.8)
+        pos: (root.width * 0.1, root.height * 0.1)
+        spacing: self.height * 0.05
+        GridLayout:
+            cols: 2
+            Label:
+                text: 'Facebook'
+            Switch:
+                id: fbSwitch
+                active: True
+            Label:
+                text: 'Twitter'
+            Switch:
+                id: twitterSwitch
+                active: True
+            Label:
+                text: 'Reddit'
+            Switch:
+                id: redditSwitch
+                active: True
+            Label:
+                text: 'Google+'
+            Switch:
+                id: googleSwitch
+                active: True
+            Label:
+                text: 'Skype'
+            Switch:
+                id: skypeSwitch
+                active: True
+        Button:
+            size_hint_y: 0.1
+            text: 'Go Back'
+            on_release: app.root.current = 'privacyscreen'
+        PrivacySubmitButton:
+
+<GamePrivacyScreen>:
+    name: 'gameprivacyscreen'
+    BoxLayout:
+        orientation: 'vertical'
+        size_hint: (0.8,0.8)
+        pos: (root.width * 0.1, root.height * 0.1)
+        spacing: self.height * 0.05
+        GridLayout:
+            cols: 2
+            Label:
+                text: 'Xbox Live'
+            Switch:
+                id: xblSwitch
+                active: True
+            Label:
+                text: 'Playstation Network'
+            Switch:
+                id: psnSwitch
+                active: True
+            Label:
+                text: 'Nintendo'
+            Switch:
+                id: nintendoSwitch
+                active: True
+            Label:
+                text: 'Steam'
+            Switch:
+                id: steamSwitch
+                active: True
+        Button:
+            size_hint_y: 0.1
+            text: 'Go Back'
+            on_release: app.root.current = 'privacyscreen'
+        PrivacySubmitButton:
+
+<PrivacyScreen>:
+    name: 'privacyscreen'
+    BoxLayout:
+        orientation: 'vertical'
+        size_hint: (0.8,0.8)
+        pos: (root.width * 0.1, root.height * 0.1)
+        spacing: self.height * 0.05
+        Label:
+            text: "The switch enables/disables all for that category, and the button will allow for individual selections"
+        BoxLayout:
+            Label:
+                text: 'Social Media'
+            Switch:
+                id: socialMediaSwitch
+                active: True
+            Button:
+                text: 'Social Media'
+                on_release: app.root.current = 'socialprivacyscreen'
+        BoxLayout:
+            Label:
+                text: 'Gaming Networks'
+            Switch:
+                id: gamingNetworksSwitch
+                active: True
+            Button:
+                text: 'Gaming Networks'
+                on_release: app.root.current = 'gameprivacyscreen'
+        Button:
+            size_hint_y: 0.1
+            text: 'Go Back'
+            on_release: app.root.current = 'profilescreen'
+        PrivacySubmitButton:
+
+<HandleScreen>:
+    name: 'handlescreen'
+    BoxLayout:
+        orientation: 'vertical'
+        size_hint: (0.8,0.8)
+        pos: (root.width * 0.1, root.height * 0.1)
+        spacing: self.height * 0.05
+        HandlesLayout:
+            id: handlesLayout
+        Button:
+            size_hint_y: 0.1
+            text: 'Go Back'
+            on_release: app.root.current = 'profilescreen'
+        Button:
+            size_hint_y: 0.1
+            text: 'Modify Handles'
+            on_release: root.updateHandles()
+
+
+
+<GameInfoScreen>:
+    name: 'gameinfoscreen'
+    BoxLayout:
+        id: myLayout
+        orientation: 'vertical'
+        size_hint: (0.8,0.8)
+        pos: (root.width * 0.1, root.height * 0.1)
+        spacing: self.height * 0.05
+
+<BackButtonGameInfo>:
+    on_release: app.root.current = 'gamescreen'
+
+<GameButton>:
+    on_release: app.root.children[0].displayGame(self)
+
+
+<GameScreen>:
+    name: 'gamescreen'
+    id: gameScreen
+    BoxLayout:
+        id: gsLayout
+        orientation: 'vertical'
+        size_hint: (0.8,0.8)
+        pos: (root.width * 0.1, root.height * 0.1)
+        spacing: self.height * 0.05
+        Label:
+            size_hint_y: 0.1
+            text: "Your Followed Games"
+
+<BrowseScreen>:
+    name: 'browsescreen'
+    BoxLayout:
+        orientation: 'vertical'
+        size_hint: (None, None)
+        size: root.width * 0.8, root.height * 0.8
+        pos: root.width * 0.1, root.height * 0.1
+        spacing: self.height * 0.02
+        Label:
+            text: 'Genre'
+        Spinner:
+            id: genreSpinner
+            text: 'FPS'
+            values: ['FPS','Action','RPG','Strategy']
+        Label:
+            text: 'Game'
+        TextInput:
+            id: gameInput
+            text: 'Game'
+            multiline: False
+        Label:
+            text: 'Console'
+        Spinner:
+            id: consoleSpinner
+            text: 'PC'
+            values: ['PC', 'Xbox 360', 'PS4', 'Wii']
+        Button:
+            text: 'Go Back'
+            on_release: app.root.current = 'gamescreen'
+        Button:
+            text: 'Find Game'
+            on_release: root.findGame()
+        Button:
+            text: 'Add Game'
+            on_release: root.addGame()
+
+
+<ProfileScreen>:
+    name: 'profilescreen'
+    id: profileScreen
+    BoxLayout:
+        id: psLayout
+        orientation: 'vertical'
+        size_hint: (0.8,0.8)
+        pos: (root.width * 0.1, root.height * 0.1)
+        spacing: self.height * 0.05
+        Button:
+            text: 'Games'
+            on_release: app.root.current = 'gamescreen'
+        Button:
+            text: 'Handles'
+            on_release: app.root.current = 'handlescreen'
+        Button:
+            text: 'Privacy'
+            on_release: app.root.current = 'privacyscreen'
+        Button:
+            text: 'Home'
+            on_release: app.root.current = 'mainscreen'

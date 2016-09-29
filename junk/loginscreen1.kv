@@ -1,0 +1,41 @@
+<ContainerWidget>:
+  LoginManager:
+    ButtonScreen:
+    LoginScreen:
+
+<ButtonScreen>:
+  name: 'button'
+  BoxLayout:
+    canvas:
+      Color:
+        rgba: 1,0,0,0.5
+      Rectangle:
+        size: self.parent.size
+        pos: self.parent.pos
+    orientation: 'vertical'
+    Button:
+      id: loginButton
+      text: 'Login'
+      center_x: self.parent.center_x
+      center_y: self.parent.center_y * 0.2
+    Button:
+      id: signupButton
+      text: 'Sign Up'
+      center_x: self.parent.center_x
+      center_y: self.parent.center_y * 0.2
+
+<LoginScreen>:
+  name: 'login'
+  BoxLayout:
+    orientation: 'vertical'
+    pos: self.parent.center_x - (self.parent.width / 4), self.parent.center_y - (self.parent.height / 4)
+    width: self.parent.width * 0.5
+    height: self.parent.height * 0.5
+    TextInput:
+      id: 'usernameTxt'
+      width: self.parent.width
+      height: self.parent.height / 3
+    TextInput:
+      id: 'passwordTxt'
+      width: self.parent.width
+      height: self.parent.height / 3

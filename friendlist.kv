@@ -1,0 +1,61 @@
+#: import ListAdapter kivy.adapters.listadapter.ListAdapter
+#: import ListItemButton kivy.uix.listview.ListItemButton
+#: import CompositeListItem kivy.uix.listview.CompositeListItem
+#: import ListItemLabel kivy.uix.listview.ListItemLabel
+
+<InviteToGroup>:
+    # on_press: print(str(app.root.children[0]))
+    # on_press: print(str([type(widget) for widget in self.walk_reverse()]))
+    on_press: self.sendInvite(app.root.children[0])
+
+<FriendBackButton>:
+    on_release: app.root.current = 'friendscreen'
+
+<FriendInfoScreen>:
+    name: 'friendinfoscreen'
+    BoxLayout:
+        id: myLayout
+        orientation: 'vertical'
+        size_hint: (0.8,0.8)
+        pos: root.width * 0.1, root.height * 0.1
+        spacing: self.height * 0.05
+        GridLayout:
+            id: myGridLayout
+            cols: 2
+            spacing: self.height * 0.02
+
+<RootWidget>:
+    FriendScreen:
+
+<ListItemButton>:
+    #on_release: print(app.root)
+
+<GroupInviteButton>:
+    # on_release: print("GroupInviteButton Works!!")
+    on_release: self.inviteToGroup()
+
+<SendMsgButton>:
+    # on_release: print("SendMsgButton Works!!")
+    on_release: self.sendMessage()
+
+<FriendItemButton>:
+    # on_release: print("FriendItemButton works and I dont have to subclass ListItemButton twice!")
+    on_release: self.displayFriendInfo()
+
+<FriendScreen>:
+    name: 'friendscreen'
+    BoxLayout:
+        id: friendLayout
+        orientation: 'vertical'
+        size_hint: (0.8,0.8)
+        pos: root.width * 0.1, root.height * 0.1
+        spacing: self.height * 0.05
+        Label:
+            size_hint_y: 0.1
+            text: 'Friend List'
+        # ListView:
+        #     adapter: root.list_adapter
+        # Button:
+        #     text: 'Main Menu'
+        #     size_hint_y: 0.1
+        #     on_release: app.root.current = 'mainscreen'

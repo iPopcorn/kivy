@@ -1,0 +1,69 @@
+<LoginManager>:
+    orientation: 'vertical'
+    ButtonScreen:
+    LoginScreen:
+    SignupScreen:
+
+<ButtonScreen>:
+    name: 'buttonscreen'
+    BoxLayout:
+        orientation: 'vertical'
+        size_hint_x: None
+        size_hint_y: None
+        height: root.height * 0.2
+        width: root.width * 0.2
+        pos: root.center_x - (self.width * 0.5), root.center_y - (self.height * 0.5)
+        spacing: 50
+        Button:
+            id: loginButton
+            text: 'Login'
+            on_release: app.root.current = 'loginscreen'
+        Button:
+            id: signupButton
+            text: 'Sign Up'
+            on_release: app.root.current = 'signupscreen'
+
+<LoginScreen>:
+    name: 'loginscreen'
+    BoxLayout:
+        orientation: 'vertical'
+        size_hint: (0.4, 0.4)
+        spacing: 50
+        pos: root.center_x - (self.width * 0.5), root.center_y - (self.height * 0.5)
+        TextInput:
+            id: loginText
+            text: 'Username'
+            multiline: False
+        TextInput:
+            id: passwordText
+            text: 'Password'
+            multiline: False
+        Button:
+            id: submitLogin
+            text: 'Login'
+            on_release: root.submitLoginDetails()
+
+
+<SignupScreen>:
+    name: 'signupscreen'
+    BoxLayout:
+        orientation: 'vertical'
+        size_hint: (0.55, 0.55)
+        spacing: 50
+        pos: root.center_x - (self.width * 0.5), root.center_y - (self.height * 0.5)
+        TextInput:
+            id: emailText
+            text: 'email'
+            multiline: False
+        TextInput:
+            id: userText
+            text: 'username'
+            multiline: False
+        TextInput:
+            id: signupPasswordText
+            text: 'password'
+            multiline: False
+        Button:
+            id: submitSignup
+            text: 'Sign Up!'
+            on_release: root.submitSignupDetails()

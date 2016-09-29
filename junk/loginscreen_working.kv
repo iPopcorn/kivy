@@ -1,0 +1,21 @@
+<ContainerWidget>:
+    BoxLayout:
+        orientation: 'vertical'
+        height: root.height * 0.5
+        width: root.width * 0.5
+        pos: root.center_x - self.width * 0.2, root.center_y - self.height * 0.2
+        padding: [0.5,0.5,1,1]
+        spacing: 50
+        Button:
+            id: loginButton
+            text: 'Login'
+            size_hint_x: None
+            size_hint_y: None
+            #size: self.parent.width * 0.2, self.parent.height * 0.2
+            #pos: self.parent.width, self.parent.height
+        Button:
+            id: signupButton
+            text: 'Sign Up'
+            size_hint_x: None
+            size_hint_y: None
+            #size: self.parent.width * 0.2, self.parent.height * 0.2
